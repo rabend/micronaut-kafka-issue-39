@@ -21,7 +21,7 @@ export class PostComponent implements OnInit {
       this.text = data['text'];
       this.created = data['created'];
       this.source = data['source'];
-      this.imageURLs = data['imageURLs'];
+      this.imageURLs = data['mediaURLs'];
     });
 
     this.refreshPost();
@@ -33,7 +33,7 @@ export class PostComponent implements OnInit {
         this.text = data['text'];
         this.created = data['created'];
         this.source = data['source'];
-        this.imageURLs = data['imageURLs'];
+        this.imageURLs = data['mediaURLs'];
       });
     });
   }

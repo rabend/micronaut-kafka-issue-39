@@ -4,6 +4,13 @@
   <div>
     <img src="{{imageSource}}">
   </div>
+    <div *ngIf="imageURLs !== undefined && imageURLs.length > 0">
+      <ul class="list-unstyled">
+        <li *ngFor="let imageSrc of imageURLs">
+          <img src="{{imageSrc}}" class="img-rounded">
+        </li>
+      </ul>
+    </div>
   <div>
     <span class="dateStamp">{{created}}</span>
   </div>

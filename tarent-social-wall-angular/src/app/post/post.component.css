@@ -1,9 +1,19 @@
 .textContainer {
   font-size: x-large;
   background-color: lightslategray;
+  margin: 10px;
 }
 
 .dateStamp {
   background-color: lightslategray;
   color: darkred;
+  margin: 10px;
+}
+
+li {
+  margin: 10px;
+}
+
+img {
+  max-height: 500px;
 }
