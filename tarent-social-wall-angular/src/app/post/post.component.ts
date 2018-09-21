@@ -10,19 +10,15 @@ import {interval} from 'rxjs';
 export class PostComponent implements OnInit {
   text: string;
   created: string;
+  imageSource: string;
 
   constructor(private backendClient: BackendClientService) {
   }
 
   ngOnInit() {
     this.backendClient.getNewPost().subscribe(data => {
-      if (data === undefined) {
-        this.text = 'No posts found :(';
-        this.created = '';
-      } else {
-        this.text = data['text'];
-        this.created = data['created'];
-      }
+      this.text = data['text'];
+      this.created = data['created'];
     });
 
     this.refreshPost();

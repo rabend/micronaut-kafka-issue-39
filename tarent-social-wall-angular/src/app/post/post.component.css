@@ -1,9 +1,9 @@
 .textContainer {
-  font-size: larger;
-  background-color: gray;
+  font-size: x-large;
+  background-color: lightslategray;
 }
 
 .dateStamp {
-  background-color: gray;
+  background-color: lightslategray;
   color: darkred;
 }
