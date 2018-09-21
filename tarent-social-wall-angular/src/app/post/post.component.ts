@@ -10,7 +10,8 @@ import {interval} from 'rxjs';
 export class PostComponent implements OnInit {
   text: string;
   created: string;
-  imageSource: string;
+  source: string;
+  imageURLs: string[];
 
   constructor(private backendClient: BackendClientService) {
   }
@@ -19,6 +20,8 @@ export class PostComponent implements OnInit {
     this.backendClient.getNewPost().subscribe(data => {
       this.text = data['text'];
       this.created = data['created'];
+      this.source = data['source'];
+      this.imageURLs = data['imageURLs'];
     });
 
     this.refreshPost();
@@ -29,6 +32,8 @@ export class PostComponent implements OnInit {
       this.backendClient.getNewPost().subscribe(data => {
         this.text = data['text'];
         this.created = data['created'];
+        this.source = data['source'];
+        this.imageURLs = data['imageURLs'];
       });
     });
   }

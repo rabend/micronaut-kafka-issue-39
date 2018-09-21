@@ -1,4 +1,6 @@
 export interface SocialPost {
   text: string;
-  created_at: string;
+  created: string;
+  source: string;
+  mediaURLs: string[];
 }
