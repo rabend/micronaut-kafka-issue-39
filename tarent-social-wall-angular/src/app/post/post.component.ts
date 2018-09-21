@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {BackendClientService} from '../backend-client.service';
+import {interval} from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -7,12 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
   text: string;
-  created_at: string;
+  created: string;
 
-  constructor() { }
+  constructor(private backendClient: BackendClientService) {
+  }
 
   ngOnInit() {
-    this.text = 'Sample text';
-    this.created_at = '2018-09-21';
+    this.backendClient.getNewPost().subscribe(data => {
+      if (data === undefined) {
+        this.text = 'No posts found :(';
+        this.created = '';
+      } else {
+        this.text = data['text'];
+        this.created = data['created'];
+      }
+    });
+
+    this.refreshPost();
+  }
+
+  refreshPost() {
+    interval(1000 * 10).subscribe(x => {
+      this.backendClient.getNewPost().subscribe(data => {
+        this.text = data['text'];
+        this.created = data['created'];
+      });
+    });
   }
 }
