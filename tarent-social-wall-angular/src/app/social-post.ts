@@ -3,4 +3,7 @@ export interface SocialPost {
   created: string;
   source: string;
   mediaURLs: string[];
+  start: string;
+  end: string;
+  location: string;
 }

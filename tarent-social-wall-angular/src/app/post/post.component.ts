@@ -12,6 +12,9 @@ export class PostComponent implements OnInit {
   created: string;
   source: string;
   imageURLs: string[];
+  start: string;
+  end: string;
+  location: string;
 
   constructor(private backendClient: BackendClientService) {
   }
@@ -22,6 +25,9 @@ export class PostComponent implements OnInit {
       this.created = data['created'];
       this.source = data['source'];
       this.imageURLs = data['mediaURLs'];
+      this.start = data['start'];
+      this.end = data['end'];
+      this.location = data['location'];
     });
 
     this.refreshPost();
@@ -34,6 +40,9 @@ export class PostComponent implements OnInit {
         this.created = data['created'];
         this.source = data['source'];
         this.imageURLs = data['mediaURLs'];
+        this.start = data['start'];
+        this.end = data['end'];
+        this.location = data['location'];
       });
     });
   }
